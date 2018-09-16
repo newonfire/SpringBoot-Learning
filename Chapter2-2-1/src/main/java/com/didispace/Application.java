@@ -1,5 +1,6 @@
 package com.didispace;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
@@ -11,12 +12,13 @@ import java.util.List;
 
 /**
  *
- * @author 程序猿DD
- * @version 1.0.0
- * @blog http://blog.didispace.com
+ * author 程序猿DD
+ * version 1.0.0
+ * blog http://blog.didispace.com
  *
  */
 @SpringBootApplication
+@Slf4j
 public class Application {
 
 	public static void main(String[] args) {
@@ -27,7 +29,7 @@ public class Application {
 		// 绑定简单配置
 		FooProperties foo = binder.bind("com.didispace", Bindable.of(FooProperties.class)).get();
 		System.out.println(foo.getFoo());
-
+		//log.info(foo.getFoo());
 		// 绑定List配置
 		List<String> post = binder.bind("com.didispace.post", Bindable.listOf(String.class)).get();
 		System.out.println(post);

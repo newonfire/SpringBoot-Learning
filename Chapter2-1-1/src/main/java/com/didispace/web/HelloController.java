@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author 程序猿DD
- * @version 1.0.0
- * @blog http://blog.didispace.com
+ * author 程序猿DD
+ * version 1.0.0
+ * blog http://blog.didispace.com
  *
  */
 @RestController
@@ -15,7 +15,8 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String index() {
-        return "Hello World";
+
+        return "Hello World2-1-2";
     }
 
 }

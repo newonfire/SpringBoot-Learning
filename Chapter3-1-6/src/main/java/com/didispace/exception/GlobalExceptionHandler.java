@@ -17,6 +17,7 @@ public class GlobalExceptionHandler {
         mav.addObject("exception", e);
         mav.addObject("url", req.getRequestURL());
         mav.setViewName("error");
+        System.out.println("aaaaa");
         return mav;
     }
 
@@ -28,6 +29,7 @@ public class GlobalExceptionHandler {
         r.setCode(ErrorInfo.ERROR);
         r.setData("Some Data");
         r.setUrl(req.getRequestURL().toString());
+        System.out.println("1bbbccdddccaa");
         return r;
     }
 

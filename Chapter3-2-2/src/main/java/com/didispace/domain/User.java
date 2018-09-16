@@ -1,58 +1,78 @@
 package com.didispace.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-/**
- * @author 程序猿DD
- * @version 1.0.0
- * @date 16/3/21 下午3:35.
- * @blog http://blog.didispace.com
- */
+import javax.persistence.*;
+import java.util.Set;
+
 @Entity
+@Table(name = "user")
 public class User {
 
+    public User() {
+    }
+
+    public User(String username, String userpwd) {
+        this.username = username;
+        this.userpwd = userpwd;
+    }
+
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long userId;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(name="username")
+    private String username;
 
-    @Column(nullable = false)
-    private Integer age;
+    @Column(name = "userpwd")
+    private String userpwd;
 
-    public User(){}
+    //@JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.ALL},mappedBy = "user")
+    private Set<Weibo> weibos;
 
-    public User(String name, Integer age) {
-        this.name = name;
-        this.age = age;
+
+    public long getUserId() {
+        return userId;
     }
 
-    public Long getId() {
-        return id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+
+    public String getUsername() {
+        return username;
     }
 
-    public String getName() {
-        return name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+    public String getUserpwd() {
+        return userpwd;
     }
 
-    public Integer getAge() {
-        return age;
+    public void setUserpwd(String userpwd) {
+        this.userpwd = userpwd;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+
+    public Set<Weibo> getWeibos() {
+        return weibos;
     }
 
+    public void setWeibos(Set<Weibo> weibos) {
+        this.weibos = weibos;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", userpwd='" + userpwd + '\'' +
+                '}';
+    }
 }

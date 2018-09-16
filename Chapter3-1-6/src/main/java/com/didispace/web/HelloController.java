@@ -18,6 +18,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello() throws Exception {
+        System.out.println("bbbccaaaaddd");
         throw new Exception("发生错误");
     }
 
