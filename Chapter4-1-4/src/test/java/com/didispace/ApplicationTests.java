@@ -25,7 +25,7 @@ public class ApplicationTests {
             task.doTaskTwo();
             task.doTaskThree();
 
-            if (i == 9999) {
+            if (i == 50) {
                 System.exit(0);
             }
         }

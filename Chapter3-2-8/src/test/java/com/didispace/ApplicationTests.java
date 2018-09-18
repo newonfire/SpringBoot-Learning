@@ -26,7 +26,7 @@ public class ApplicationTests {
 	private UserMapper userMapper;
 
 	@Test
-	@Rollback
+	@Rollback(false)
 	public void testUserMapper() throws Exception {
 		// insert一条数据，并select出来验证
 		userMapper.insert("AAA", 20);

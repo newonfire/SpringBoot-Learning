@@ -1,9 +1,6 @@
 package com.didispace.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author 程序猿DD
@@ -12,13 +9,14 @@ import javax.persistence.Id;
  * @blog http://blog.didispace.com
  */
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, length = 5)
+    @Column(nullable = false, length = 100)
     private String name;
 
     @Column(nullable = false)
